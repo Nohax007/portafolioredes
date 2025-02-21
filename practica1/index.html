@@ -65,8 +65,8 @@
 
                         <div class="text-muted fst-italic mt-2 mb-2">Fecha: Enero 27, 2025</div>
                         <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
-                        <a class="badge bg-primary text-decoration-none link-light" >Arduino</a>
-                        <a class="badge bg-primary text-decoration-none link-light" >Electrónica</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >ESP32</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >WOKWI</a>
 
                     </header>
                 </div>
@@ -76,49 +76,77 @@
             <section>
                 <div class="container px-5">
 
-                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/web.jpg" alt="..." /></figure>
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/esp32.jpg" alt="..." /></figure>
                                 
                     <p id="resumen">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">En esta primera práctica se realizo el encendido y apagado de un led (parpadeo del mismo) a traves de un microcontrolador llamado ESP32 empleando lenguaje de programación C++ en Arduino, utilizando IDE de Arduino para subir los programas al microcontrolador</p>
+                        <p class="fs-6 mb-4">Por otra parte, tambien se realizo el encendido y apagado del led mediante un push button, además de configurarlos como compuertas lógicas</p>
                         
                         <p id="intro">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">ESP32 es una familia de microcontroladores de la empresa Espressif Systems. Su analogía más clara es la de un ESP8266 con esteroides, que incluye Wifi, Bluetooth y otras potentes características extra.</p>
+                        <p class="fs-6 mb-4">ESP32 es una serie de SoC (por sus siglas en inglés, System on Chip) y módulos de bajo costo y bajo consumo de energía creado por Espressif Systems.</p>
+                        <p class="fs-6 mb-4">La familia incluye los chips:</p>
+                        <ul class="fs-6 mb-4">
+                            <li><strong>ESP32-D0WDQ6</strong>.</li>
+                            <li><strong>ESP32-D0WD</strong>.</li>
+                            <li><strong>ESP32-D2WD</strong>.</li>
+                            <li><strong>ESP32-S0WD</strong>.</li>
+                            <li>Y el <strong>SiP</strong> <em>(System in Package)</em> <strong>ESP32-PICO-D4</strong>.</li>
+                        </ul>
+                        <p class="fs-6 mb-4">En esencia, estos se basan en un <strong>microprocesador Tensilica Xtensa LX6</strong> (de uno o dos nucleos) con una frecuencia de operación de hasta 240 MHz.</p>
+                        <p class="fs-6 mb-4">Los <strong>ESP32</strong> poseen un alto nivel de integración. En su pequeño encapsulado se incluyen:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>interruptores de antena</li>
+                            <li>balun de RF</li>
+                            <li>amplificador de potencia</li>
+                            <li>amplificador de recepción de bajo ruido</li>
+                            <li>filtros y módulos de administración de energía</li>
+                        </ul>
+                        <p class="fs-6 mb-4">Además de todo eso, <strong>logra un consumo de energía muy bajo</strong> a través de funciones de ahorro de energía que incluyen sincronización de reloj y múltiples modos de operación. Todo esto lo convierte en la <strong>herramienta ideal para tus proyectos energizados con baterías o aplicaciones IoT</strong>.</p>
                         
                         <p id="materiales">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">Los materiales utilizados para esta práctica son los siguientes:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>ESP32</li>
+                            <li>Led</li>
+                            <li>2 push button</li>
+                            <li>Resistencias (de 220 para los leds y 10k ohms para los botones).</li>
+                        </ul>
                         
                         <p id="desarrollo">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">Se desarrollaron primero las simulaciones en WOKWI donde se hicieron las conexiones a manera digital junto con su programación para el encendido del led y los ejercicios de compuertas logicas, en este caso solo aplicamos <strong>AND</strong> y <strong>OR</strong>.</p>
+                        <p class="fs-6 mb-4">Después se implementó a fisíco con la materiales antes dichos, usando ESP32, un led, push buttons, resistencias y el programa de arduino.</p>
                         
                             <p id="simulacion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                            <p class="fs-6 mb-4">Las simulaciones son las siguientes:</p>
+                            <h2 class="section-title">Simulación Encendido</h2>
+                            <h2 class="section-title">Simulación Apagado</h2>
+                            <h2 class="section-title">Simulación Parpadeo</h2>
+                            <h2 class="section-title">Simulación con un boton</h2>
+                            <h2 class="section-title">Simulación con dos botones</h2>
+                            <h2 class="section-title">Simulación de comuperta OR</h2>
+                            <h2 class="section-title">Simulación de compuerta AND</h2>
+
                             <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/ne555.png" alt="..." /></figure>
-                    
-                            <p id="diseño">
-                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Diseño</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
                             
                             <p id="construccion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                            <p class="fs-6 mb-4">Los diagramas ya construidos, son los siguientes:</p>
+                            <h2 class="section-title">Para encendido y apagado</h2>
+                            <h2 class="section-title">Para parpadeo</h2>
+                            <h2 class="section-title">Para 1 botón</h2>
+                            <h2 class="section-title">Para 2 botones y las compuertas</h2>
+
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/ne555.png" alt="..." /></figure>
                             
 
                         <p id="resultados">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
                             <source src="video/Robot.mp4" type="video/mp4">
                         </video></p></figure>
