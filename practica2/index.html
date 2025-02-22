@@ -102,59 +102,111 @@
                     <p id="resumen">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
                         <p class="fs-6 mb-4">En esta segunda practica se realizó la conexión de distintos sensores con la ESP32, de manera que se extrajeron los datos de los mismos y se cumplieron condiciones para permitir el encendido de un led con el cual, se comprobó el funcionamiento total del sistema, donde el led encendía cada cierto rango de valores de los sensores.</p>
-                        <p class="fs-6 mb-4">Para esta práctica se ocuparon conocimientos básicos del ESP32 y los sensores como el DHT22, PIR de movimiento y sensores analógicos como botones y potenciometros.</p>
+                        <p class="fs-6 mb-4"><Para esta práctica se ocuparon conocimientos básicos del ESP32 y los sensores como el DHT22, PIR de movimiento y sensores analógicos como botones y potenciometros.></p>
                         
                         <p id="intro">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">Los sensores son dispositivos que detectan cambios en variables físicas o químicas y las transforman en señales eléctricas que pueden ser interpretadas por sistemas electrónicos. Dependiendo de la naturaleza de su salida, los sensores se clasifican en analógicos o digitales.</p>
+                        <p class="fs-6 mb-4"><strong>Sensores Analógicos:</strong></p>
+                        <p class="fs-6 mb-4">Estos sensores proporcionan una señal continua que varía en función de la magnitud medida. La salida suele ser un voltaje proporcional al valor detectado, lo que permite una representación detallada de la variable. En esta práctica, se utilizaron los siguientes sensores analógicos:</p>
+                        <ul class="fs-6 mb-4">
+                            <li><strong>Potenciómetro:</strong> Es una resistencia variable que permite ajustar manualmente el voltaje de salida. Se emplea comúnmente para controlar parámetros como la intensidad luminosa o la velocidad de un motor. En este caso, el potenciómetro se conectó al pin A0 de la ESP32, permitiendo leer valores analógicos que varían según la posición del mismo.</li>
+                        </ul>
+                        <p class="fs-6 mb-4"><strong>Sensores Digitales:</strong></p>
+                        <p class="fs-6 mb-4">Estos sensores generan señales discretas, típicamente representadas por niveles lógicos altos o bajos (1 o 0). Son ideales para detectar eventos o estados específicos. En esta práctica, se emplearon los siguientes sensores digitales:</p>
+                        <ul class="fs-6 mb-4">
+                            <li><strong>Botón (Pulsador):</strong>Un dispositivo simple que, al ser presionado, cambia su estado de abierto a cerrado, generando una señal digital. Se utilizó para iniciar o detener procesos en el sistema, conectándose a una entrada digital de la ESP32.</li>
+                            <li><strong>Sensor DHT22:</strong>Este sensor combina la medición de temperatura y humedad en un solo dispositivo y comunica los datos de forma digital. Ofrece alta precisión y estabilidad a largo plazo, siendo adecuado para aplicaciones que requieren monitoreo ambiental preciso.</li>
+                            <li><strong>Sensor PIR de Movimiento:</strong>Detecta la presencia de movimiento basado en la radiación infrarroja emitida por los cuerpos. Al identificar cambios en los niveles de infrarrojos en su entorno, el sensor genera una señal digital que indica la detección de movimiento, siendo útil en sistemas de seguridad y automatización.</li>
+                        </ul>
+                        <p class="fs-6 mb-4">La integración de estos sensores con la ESP32 permitió desarrollar un sistema interactivo capaz de responder a diferentes estímulos del entorno. Por ejemplo, se configuró el encendido de un LED cuando el sensor PIR detectaba movimiento o cuando el potenciómetro alcanzaba cierto umbral, demostrando la versatilidad y potencia de combinar múltiples tipos de sensores en proyectos de electrónica y programación.</p>
                         
                         <p id="materiales">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">Los materiales utilizados para esta segunda práctica son los siguientes:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>ESP32</li>
+                            <li>Led</li>
+                            <li>Potenciometro</li>
+                            <li>Push button</li>
+                            <li>Sensor de temperatura y humedad (DHT22)</li>
+                            <li>Sensor de movimiento (PIR)</li>
+                            <li>Resistencias (de 220 para el led y 10k ohms para el boton).</li>
+                        </ul>
                         
                         <p id="desarrollo">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">Primero se hicieron las simulaciones en WOKWI de cada uno de los sistemas con su respectivo sensor y el mismo led.</p>
+                        <p class="fs-6 mb-4">Posteriormente, una vez que la simulación funcionó, se realizaron las conexiones pertinentes en físico y se programo con Arduino la ESP32 junto a cada distinto sensor, realizando asi los distintos sistemas.</p>
                         
-                            <p id="simulacion">
+                        <p id="simulacion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/ne555.png" alt="..." /></figure>
-                    
-                            <p id="diseño">
-                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Diseño</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                            <p class="fs-6 mb-4">Las simulaciones son las siguientes:</p>
+                            <h2 class="section-title">Simulación con boton</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_bot.png" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/Sensor Bot.mp4" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title">Simulación con potenciometro</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_pot.png" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/Sensor pot.mp4" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title">Simulación con sensor DHT22</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/DHT22.png" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/Sensor DHT22.mp4" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title">Simulación con sensor PIR</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/PIR.png" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/Sensor PIR.mp4" type="video/mp4">
+                            </video></p></figure>
                             
                             <p id="construccion">
-                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
-                            <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                            <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                                <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
+                                <p class="fs-6 mb-4">Los diagramas ya construidos, son los siguientes:</p>
+                                <h2 class="section-title">Para el boton</h2>
+                                <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/conf_bot.png" alt="..." /></figure>
+                                <h2 class="section-title">Para el potenciometro</h2>
+                                <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/conf_pot.png" alt="..." /></figure>
+                                <h2 class="section-title">Para sensor DHT22</h2>
+                                <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/conf_dht22.png" alt="..." /></figure>
+                                <h2 class="section-title">Para sensor PIR</h2>
+                                <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/conf_pir.png" alt="..." /></figure>
                             
-
-                        <p id="resultados">
-                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Robot.mp4" type="video/mp4">
-                        </video></p></figure>
+                                <p id="resultados">
+                                    <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
+                                    <h2 class="section-title">Boton como sensor</h2>
+                                    <figure class="mb-4" align="center"><video width="80%"  controls>
+                                        <source src="video/bot_sens.mp4" type="video/mp4">
+                                    </video></p></figure>
+                                    <h2 class="section-title">Potenciometro como sensor</h2>
+                                    <figure class="mb-4" align="center"><video width="80%"  controls>
+                                        <source src="video/pot_sens.mp4" type="video/mp4">
+                                    </video></p></figure>
+                                    <h2 class="section-title">Sensor DHT22</h2>
+                                    <figure class="mb-4" align="center"><video width="80%"  controls>
+                                        <source src="video/dht22.mp4" type="video/mp4">
+                                    </video></p></figure>
+                                    <h2 class="section-title">Sensor PIR</h2>
+                                    <figure class="mb-4" align="center"><video width="80%"  controls>
+                                        <source src="video/pir.mp4" type="video/mp4">
+                                    </video></p></figure>
 
                         <p id="conclusiones">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
-                        
+                        <p class="fs-6 mb-4">La realización de esta práctica permitió comprender y aplicar el uso de sensores analógicos y digitales en conjunto con la ESP32, demostrando su versatilidad en la adquisición y procesamiento de datos. A través de la integración del potenciómetro, botón, sensor DHT22 y sensor PIR de movimiento, se experimentó con diferentes tipos de señales y su impacto en el control de dispositivos electrónicos, como LEDs, lo que reforzó el conocimiento sobre la interacción entre hardware y software.</p>
+                        <p class="fs-6 mb-4">El uso de sensores analógicos, como el potenciómetro, permitió captar valores de entrada variables, facilitando un control más preciso sobre el sistema. Por otro lado, los sensores digitales, como el botón, el DHT22 y el PIR de movimiento, mostraron su capacidad para detectar eventos discretos y transmitir información estructurada a la ESP32, evidenciando la importancia de cada tipo de sensor en distintas aplicaciones.</p>
+                        <p class="fs-6 mb-4">Además, la práctica sirvió para afianzar conceptos de programación y electrónica, como la conversión de señales, la lectura de datos en tiempo real y la implementación de condiciones lógicas para la toma de decisiones dentro del sistema. Estas habilidades son fundamentales para el desarrollo de proyectos más avanzados en el ámbito de la mecatrónica y la automatización.</p>
+                        <p class="fs-6 mb-4">Esta actividad brindó una base sólida para el diseño e implementación de sistemas de monitoreo y control, abriendo la puerta a futuras aplicaciones en domótica, sistemas embebidos e Internet de las Cosas (IoT).</p>
 
                         <p id="referencias">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
-                        <p class="fs-6 mb-4">Microchip AVR® microcontroller primer: programming and interfacing, third edition (synthesis lectures on digital circuits and systems), BARRETT, Steven F. Pack Daniel J., Editorial Morgan & Claypool, 2019.</p>
-                        <p class="fs-6 mb-4">K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, USA, 2016, pp. 770-778, doi: 10.1109/CVPR.2016.90.</p>
-                        <p class="fs-6 mb-4">J. D. Hunter, "Matplotlib: A 2D Graphics Environment," in Computing in Science & Engineering, vol. 9, no. 3, pp. 90-95, May-June 2007, doi: 10.1109/MCSE.2007.55.</p>
+                        <p class="fs-6 mb-4">IACIDUINO, UNAM. Manual de usuario DASA v2.4. Recuperado de: https://iaciduino.enp.unam.mx/wpArduino/wp-content/uploads/2023/05/MANUAL-DE-USUARIO-DASA-v2.4.pdf</p>
+                        <p class="fs-6 mb-4">CATEDU, Arduino en el aula. Sensores. Recuperado de: https://libros.catedu.es/books/arduino-en-el-aula/page/sensores</p>
+                        <p class="fs-6 mb-4">Adafruit Industries. DHT22 Temperature-Humidity Sensor. Recuperado de: https://www.adafruit.com/product/385</p>
+                        <p class="fs-6 mb-4">IACIDUINO, UNAM. Manual de usuario DASA v2.4. Recuperado de: https://iaciduino.enp.unam.mx/wpArduino/wp-content/uploads/2023/05/MANUAL-DE-USUARIO-DASA-v2.4.pdf</p>
                         
                         <p id="descargables">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
