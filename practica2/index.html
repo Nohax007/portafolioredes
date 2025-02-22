@@ -13,6 +13,27 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionamos los enlaces de Inicio, Acerca del equipo y Prácticas
+            const links = document.querySelectorAll('.nav-item a');
+    
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace se ejecute inmediatamente
+    
+                    // Muestra la ventana de confirmación
+                    let confirmation = confirm("¿Estás seguro de que deseas salir del sitio?");
+                    
+                    if (confirmation) {
+                        window.location.href = this.href; // Redirige si el usuario confirma
+                    }
+                });
+            });
+        });
+    </script>
+    
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
@@ -22,8 +43,8 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="../">Home</a></li>                    
-                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca de mi</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../">Inicio</a></li>                    
+                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca del equipo</a></li>
                             <li class="nav-item"><a class="nav-link" href="../index.html#practicas">Prácticas</a></li>
                         </ul>
                     </div>
@@ -37,7 +58,7 @@
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
                                 <h1 class="display-6 fw-bolder text-white mb-2">Portafolio de Actividades</h1>
-                                <h1 class="display-8 fw-bolder text-white mb-2">Introduccion a Ing. Mecatrónica</h1>
+                                <h1 class="display-8 fw-bolder text-white mb-2">Laboratorio de Redes Digitales</h1>
                                 <p id="resumen" class="display-8 fw-normal text-white-50 mb-4">Departamento de Ciencias e Ingenierías | Universidad Iberoamericana Puebla, México.</p>
                             </div>
                         </div>
@@ -51,20 +72,22 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">Titulo de la practica de laboratorio</h1>
+                        <h1 class="fw-bolder mb-1">Práctica 2: Wifi ESP32 - Sensores Digitales, Analógicos e Inteligentes</h1>
 
                         <!-- ETIQUETA DE ALUMNO (Hacer una por cada alumno)-->
-                            <img class="img-fluid rounded-circle" width="50px" src="assets/Huber.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Noé.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Horca.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Fernando.png" alt="..." />
                             <div class="ms-2">
-                                <div class="fw-bold">Nombre de integrante del equipo</div>
-                                <div class="text-muted">Carrera que estudia</div>
+                                <div class="fw-bold">Noé Aguirre Gallegos, Diego Horcasitas Vera y Fernando Diaz Abascal</div>
+                                <div class="text-muted">Ingeniería Mecatrónica</div>
                             </div>
                         <!--Aqui termina etiqueta de alumno-->
 
-                        <div class="text-muted fst-italic mt-2 mb-2">Fecha: Mes dia, Año</div>
+                        <div class="text-muted fst-italic mt-2 mb-2">Fecha: Febrero 10, 2025</div>
                         <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
-                        <a class="badge bg-primary text-decoration-none link-light" >Arduino</a>
-                        <a class="badge bg-primary text-decoration-none link-light" >Electrónica</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >ESP32</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >Sensores</a>
 
                     </header>
                 </div>
@@ -74,12 +97,12 @@
             <section>
                 <div class="container px-5">
 
-                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/web.jpg" alt="..." /></figure>
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/Sensores.jpg" alt="..." /></figure>
                                 
                     <p id="resumen">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
-                        <p class="fs-6 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe. The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
-                        <p class="fs-6 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
+                        <p class="fs-6 mb-4">En esta segunda practica se realizó la conexión de distintos sensores con la ESP32, de manera que se extrajeron los datos de los mismos y se cumplieron condiciones para permitir el encendido de un led con el cual, se comprobó el funcionamiento total del sistema, donde el led encendía cada cierto rango de valores de los sensores.</p>
+                        <p class="fs-6 mb-4">Para esta práctica se ocuparon conocimientos básicos del ESP32 y los sensores como el DHT22, PIR de movimiento y sensores analógicos como botones y potenciometros.</p>
                         
                         <p id="intro">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
@@ -135,9 +158,7 @@
                         
                         <p id="descargables">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
-                        <p class="fs-6 mb-4">Descargar documento PDF: <a href="files/Documento.pdf">documento.pdf</a> </p>
-                        <p class="fs-6 mb-4">Descargar codigo Arduino: <a href="files/Ejemplo_arduino_bluetooth.ino">codigo.ino</a> </p>
-                        <p class="fs-6 mb-4">Descargar Archivo 3d .STL: <a href="files/Pieza_3D.STL">pieza.stl</a> </p>
+                        <p class="fs-6 mb-4">Descargar documento Word: <a href="files/PRÁCTICA 2 ESP32 Sensores.docx">documento.docx</a> </p>
 
                 </div>
             </section>
