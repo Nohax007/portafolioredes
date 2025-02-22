@@ -13,6 +13,27 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionamos los enlaces de Inicio, Acerca del equipo y Prácticas
+            const links = document.querySelectorAll('.nav-item a');
+    
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace se ejecute inmediatamente
+    
+                    // Muestra la ventana de confirmación
+                    let confirmation = confirm("¿Estás seguro de que deseas salir del sitio?");
+                    
+                    if (confirmation) {
+                        window.location.href = this.href; // Redirige si el usuario confirma
+                    }
+                });
+            });
+        });
+    </script>
+    
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
@@ -22,8 +43,8 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="../">Home</a></li>                    
-                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca de mi</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../">Inicio</a></li>                    
+                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca del equipo</a></li>
                             <li class="nav-item"><a class="nav-link" href="../index.html#practicas">Prácticas</a></li>
                         </ul>
                     </div>
