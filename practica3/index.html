@@ -101,31 +101,15 @@
                                 
                     <p id="resumen">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
-                        <p class="fs-6 mb-4">En esta primera práctica se realizo el encendido y apagado de un led (parpadeo del mismo) a traves de un microcontrolador llamado ESP32 empleando lenguaje de programación C++ en Arduino, utilizando IDE de Arduino para subir los programas al microcontrolador</p>
-                        <p class="fs-6 mb-4">Por otra parte, tambien se realizo el encendido y apagado del led mediante un push button, además de configurarlos como compuertas lógicas</p>
+                        <p class="fs-6 mb-4">En esta tercera práctica se realizó la conexión del ESP32 con Thingspeak mediante WiFin de manera que se capturaron datos en la aplicación gracias a la comunicación WiFi.</p>
+                        <p class="fs-6 mb-4">Se utilizaron los sensores de la anterior práctica para ello, el boton, el potenciometro, el DHT22 y el sensor de movimiento PIR.</p>
                         
                         <p id="intro">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
-                        <p class="fs-6 mb-4">ESP32 es una familia de microcontroladores de la empresa Espressif Systems. Su analogía más clara es la de un ESP8266 con esteroides, que incluye Wifi, Bluetooth y otras potentes características extra.</p>
-                        <p class="fs-6 mb-4">ESP32 es una serie de SoC (por sus siglas en inglés, System on Chip) y módulos de bajo costo y bajo consumo de energía creado por Espressif Systems.</p>
-                        <p class="fs-6 mb-4">La familia incluye los chips:</p>
-                        <ul class="fs-6 mb-4">
-                            <li><strong>ESP32-D0WDQ6</strong>.</li>
-                            <li><strong>ESP32-D0WD</strong>.</li>
-                            <li><strong>ESP32-D2WD</strong>.</li>
-                            <li><strong>ESP32-S0WD</strong>.</li>
-                            <li>Y el <strong>SiP</strong> <em>(System in Package)</em> <strong>ESP32-PICO-D4</strong>.</li>
-                        </ul>
-                        <p class="fs-6 mb-4">En esencia, estos se basan en un <strong>microprocesador Tensilica Xtensa LX6</strong> (de uno o dos nucleos) con una frecuencia de operación de hasta 240 MHz.</p>
-                        <p class="fs-6 mb-4">Los <strong>ESP32</strong> poseen un alto nivel de integración. En su pequeño encapsulado se incluyen:</p>
-                        <ul class="fs-6 mb-4">
-                            <li>interruptores de antena</li>
-                            <li>balun de RF</li>
-                            <li>amplificador de potencia</li>
-                            <li>amplificador de recepción de bajo ruido</li>
-                            <li>filtros y módulos de administración de energía</li>
-                        </ul>
-                        <p class="fs-6 mb-4">Además de todo eso, <strong>logra un consumo de energía muy bajo</strong> a través de funciones de ahorro de energía que incluyen sincronización de reloj y múltiples modos de operación. Todo esto lo convierte en la <strong>herramienta ideal para tus proyectos energizados con baterías o aplicaciones IoT</strong>.</p>
+                        <p class="fs-6 mb-4">En el mundo de la automatización y el Internet de las Cosas (IoT), la recopilación, transmisión y análisis de datos en tiempo real se han convertido en aspectos fundamentales para el desarrollo de sistemas inteligentes. Dispositivos como el ESP32, gracias a su capacidad de conectividad Wi-Fi y Bluetooth, ofrecen una solución eficiente para la comunicación de sensores con plataformas en la nube. Entre estas plataformas, ThingSpeak se destaca por su capacidad para almacenar, visualizar y analizar datos en tiempo real mediante el uso de gráficos y procesamiento de información basado en MATLAB.</p>
+                        <p class="fs-6 mb-4">La integración del ESP32 con ThingSpeak ha sido ampliamente explorada en diversas aplicaciones, como la monitorización remota de entornos domésticos (Cloud-Based Smart Home Monitoring using ThingSpeak and ESP32 - ResearchGate, 2023) y el desarrollo de sistemas inteligentes para la detección de anomalías (Anomaly Detection and Classification Using ESP32 and ThingSpeak - Journal of the Institute of Industrial and Intelligent Engineers, 2024). Estas implementaciones demuestran cómo el uso de dispositivos IoT puede mejorar la eficiencia y confiabilidad en múltiples sectores, incluyendo la automatización industrial y la gestión energética.</p>
+                        <p class="fs-6 mb-4">En esta práctica, se busca comprender el funcionamiento de la plataforma ThingSpeak en conjunto con el módulo ESP32, permitiendo la recopilación y transmisión de datos de sensores en tiempo real. Para ello, se explorará la configuración del entorno de desarrollo en Arduino IDE (ESP32 HTTP POST Request using Arduino IDE - Microcontrollers Lab, 2023), la conexión a redes Wi-Fi, la lectura de sensores y el envío de información a la nube. A lo largo del desarrollo de la práctica, se trabajará con ejemplos que incluyen sensores digitales, analógicos e inteligentes, aplicando los conceptos fundamentales de IoT para establecer una comunicación eficiente entre hardware y software.</p>
+                        <p class="fs-6 mb-4">Esta actividad nos permitirá adquirir experiencia práctica en la implementación de sistemas IoT y el uso de plataformas en la nube para la monitorización y análisis de datos, brindando una base sólida para el desarrollo de futuros proyectos tecnológicos y de automatización.</p>
                         
                         <p id="materiales">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
@@ -133,99 +117,89 @@
                         <ul class="fs-6 mb-4">
                             <li>ESP32</li>
                             <li>Led</li>
-                            <li>2 push button</li>
-                            <li>Resistencias (de 220 para los leds y 10k ohms para los botones).</li>
+                            <li>Potenciometro</li>
+                            <li>Push button</li>
+                            <li>Sensor de temperatura y humedad (DHT22)</li>
+                            <li>Sensor de movimiento (PIR)</li>
+                            <li>Resistencias (de 220 para el led y 10k ohms para el boton).</li>
                         </ul>
                         
                         <p id="desarrollo">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
-                        <p class="fs-6 mb-4">Se desarrollaron primero las simulaciones en WOKWI donde se hicieron las conexiones a manera digital junto con su programación para el encendido del led y los ejercicios de compuertas logicas, en este caso solo aplicamos <strong>AND</strong> y <strong>OR</strong>.</p>
-                        <p class="fs-6 mb-4">Después se implementó a fisíco con la materiales antes dichos, usando ESP32, un led, push buttons, resistencias y el programa de arduino.</p>
+                        <p class="fs-6 mb-4">Se desarrollaron primero las simulaciones en WOKWI donde se hicieron las conexiones a manera digital junto con su programación para el encendido del led junto con los sesnores correspondientes para cada caso (boton, potenciometro, DHT22 y PIR).</p>
+                        <p class="fs-6 mb-4">Después se implementó a fisíco con la materiales antes dichos, usando ESP32, un led, push button, resistencias, los sensores correspondientes y el programa de arduino.</p>
                         
                             <p id="simulacion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
                             <p class="fs-6 mb-4">Las simulaciones son las siguientes:</p>
-                            <h2 class="section-title">Simulación Encendido</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_en.png" alt="..." /></figure>
+                            <h2 class="section-title">Simulación con boton</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_bot.png" alt="..." /></figure>
                             <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-ON.mp4" type="video/mp4">
+                                <source src="video/Sensor Dig.mp4" type="video/mp4">
                             </video></p></figure>
-                            <h2 class="section-title">Simulación Apagado</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_ap.png" alt="..." /></figure>
+                            <h2 class="section-title">Simulación con potenciometro</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_pot.png" alt="..." /></figure>
                             <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-OFF.mp4" type="video/mp4">
+                                <source src="video/Sensor analogico.mp4" type="video/mp4">
                             </video></p></figure>
-                            <h2 class="section-title">Simulación Parpadeo</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/parpadeo.png" alt="..." /></figure>
+                            <h2 class="section-title">Simulación con sensor DHT22</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_dht22.png" alt="..." /></figure>
                             <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-PARPADEO.mp4" type="video/mp4">
+                                <source src="video/Sensor Inteligente.mp4" type="video/mp4">
                             </video></p></figure>
-                            <h2 class="section-title">Simulación con un boton</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_bot.png" alt="..." /></figure>
+                            <h2 class="section-title">Simulación con sensor PIR</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sens_pir.png" alt="..." /></figure>
                             <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-Boton.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación de comuperta OR</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_OR.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-OR.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación de compuerta AND</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_AND.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-AND.mp4" type="video/mp4">
+                                <source src="video/Sensor PIR.mp4" type="video/mp4">
                             </video></p></figure>
                             
                             <p id="construccion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
                             <p class="fs-6 mb-4">Los diagramas ya construidos, son los siguientes:</p>
-                            <h2 class="section-title">Para encendido y apagado</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
-                            <h2 class="section-title">Para parpadeo</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_en_esp32.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 1 botón</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_bot.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 2 botones y las compuertas</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_bots.png" alt="..." /></figure>
+                            <h2 class="section-title">Para el boton</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_bot.jpg" alt="..." /></figure>
+                            <h2 class="section-title">Para el potenciometro</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_pot.jpg" alt="..." /></figure>
+                            <h2 class="section-title">Para el sensor DHT22</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_dht22.jpg" alt="..." /></figure>
+                            <h2 class="section-title">Para el sensor PIR</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_pir.jpg" alt="..." /></figure>
                             
 
                         <p id="resultados">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
-                        <h2 class="section-title">Simulación Encendido</h2>
-                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_en_esp32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Apagado</h2>
-                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Parpadeo</h2>
+                        <h2 class="section-title">Con boton</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Parpadeo led.mp4" type="video/mp4">
+                            <source src="video/esp32_bot.mp4" type="video/mp4">
                         </video></p></figure>
-                        <h2 class="section-title">Simulación con un boton</h2>
+                        <h2 class="section-title">Con potenciometro</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Led con boton.mp4" type="video/mp4">
+                            <source src="video/esp32_pot.mp4" type="video/mp4">
                         </video></p></figure>
-                        <h2 class="section-title">Simulación de comuperta OR</h2>
+                        <h2 class="section-title">Con DHT22</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/OR.mp4" type="video/mp4">
+                            <source src="video/esp32_dht22.mp4" type="video/mp4">
                         </video></p></figure>
-                        <h2 class="section-title">Simulación de compuerta AND</h2>
+                        <h2 class="section-title">Con PIR</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/AND.mp4" type="video/mp4">
+                            <source src="video/esp32_pir.mp4" type="video/mp4">
                         </video></p></figure>
 
                         <p id="conclusiones">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
-                        <p class="fs-6 mb-4">En esta práctica, se logró realizar la simulación de un circuito básico utilizando un ESP32 y un LED, comprobando el funcionamiento del microcontrolador al encender y apagar el LED en intervalos regulares. Se reforzaron conceptos clave como la configuración de pines de salida en el ESP32 y la implementación de retardos mediante la función ( delay).</p>
-                        <p class="fs-6 mb-4">Esta actividad permitió familiarizarse con el entorno de simulación de Wokwi, facilitando la prueba de código antes de implementarlo en hardware real. Además, se comprendió la importancia de estructurar correctamente el código en Arduino para lograr un control preciso de los dispositivos conectados.</p>
-                        <p class="fs-6 mb-4">En futuras prácticas, se explorarán interacciones más avanzadas con sensores y módulos de comunicación para ampliar las capacidades del ESP32 en proyectos más complejos.</p>
+                        <p class="fs-6 mb-4">Al completar esta práctica, el estudiante habrá adquirido competencias clave en la integración de hardware y software para proyectos IoT. La experiencia práctica en la configuración del ESP32 y su comunicación con ThingSpeak proporciona una base sólida para el desarrollo de sistemas de monitorización remota y análisis de datos en tiempo real. Además, la implementación de ejemplos con diferentes tipos de sensores refuerza la comprensión de la versatilidad y aplicabilidad del ESP32 en diversos entornos y aplicaciones.</p>
 
                         <p id="referencias">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
-                        <p class="fs-6 mb-4">Carmenate, J. G. (2022, March 7). ESP32 Wifi + Bluetooth en un solo lugar. Programarfacil Arduino y Home Assistant. https://programarfacil.com/esp8266/esp32/</p>
-                        <p class="fs-6 mb-4">Espressif Systems. (2025). ESP32 Series Datasheet. Recuperado de https://www.espressif.com/en/products/socs/esp32</p>
-                        <p class="fs-6 mb-4">Arduino. (2025). Documentación oficial de Arduino para ESP32. Recuperado de https://www.arduino.cc/reference/en/</p>
-                        <p class="fs-6 mb-4">Wokwi. (2025). Plataforma de simulación en línea para microcontroladores. Recuperado de https://wokwi.com</p>
-                        <p class="fs-6 mb-4">Martínez, J. (2023). Introducción a la Programación de Microcontroladores ESP32 con Arduino IDE. Editorial Tecnológica.</p>
-                        <p class="fs-6 mb-4">IEEE Xplore. (2024). Applications of ESP32 in IoT-based Embedded Systems. Recuperado de https://ieeexplore.ieee.org/</p>
+                        <p class="fs-6 mb-4">Tech Amplifiers. (2023). IoT - ESP32 And ThingSpeak. Recuperado de: https://techamplifiers.com/2023/02/14/iot-esp32-and-thingspeak</p>
+                        <p class="fs-6 mb-4">Random Nerd Tutorials. (2021). ESP32 Publish Sensor Readings to ThingSpeak (easiest way). Recuperado de: https://randomnerdtutorials.com/esp32-thingspeak-publish-arduino</p>
+                        <p class="fs-6 mb-4">Microcontrollers Lab. (2023). ESP32 HTTP POST Request using Arduino IDE. Recuperado de: https://microcontrollerslab.com/esp32-http-post-using-arduino-ide-thingspeak-and-ifttt</p>
+                        <p class="fs-6 mb-4">Tech Amplifiers. (2023). IoT Made Easy: ESP-MicroPython-MQTT-ThingSpeak. Recuperado de: https://medium.com/towards-data-science/iot-made-easy-esp-micropython-mqtt-thingspeak-ce05eea27814</p>
+                        <p class="fs-6 mb-4">Random Nerd Tutorials. (2021). ESP32 Save Data Permanently using Preferences Library. Recuperado de: https://randomnerdtutorials.com/esp32-save-data-permanently-preferences</p>
+                        <p class="fs-6 mb-4">ResearchGate. (2023). Cloud-Based Smart Home Monitoring using ThingSpeak and ESP32. Recuperado de: https://www.researchgate.net/publication/387586883_Cloud-Based_Smart_Home_Monitoring_using_ThingSpeak_and_ESP32</p>
+                        <p class="fs-6 mb-4">MDPI Sensors. (2023). Design and Implementation of ESP32-Based IoT Devices. Recuperado de: https://www.mdpi.com/1424-8220/23/15/6739</p>
+                        <p class="fs-6 mb-4">Journal of the Institute of Industrial and Intelligent Engineers. (2024). Anomaly Detection and Classification Using ESP32 and ThingSpeak. Recuperado de: https://www.journal-iiie-india.com/1_mar_24/6_online_mar.pdf</p>
+                        <p class="fs-6 mb-4">Polish Electrical Engineering Journal. (2024). Seamless Integration of ZigBee Wireless Ambient Detectors with ESP32. Recuperado de: https://pe.org.pl/articles/2024/6/47.pdf</p>
                         
                         <p id="descargables">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
@@ -244,7 +218,7 @@
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2023</div></div>
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
                     <div class="col-auto">
                         <a class="link-light small" href="#!">Privacy</a>
                         <span class="text-white mx-1">&middot;</span>
