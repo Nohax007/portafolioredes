@@ -142,44 +142,38 @@
                             <p id="construccion">
                             <h2 class="fw-bolder mb-4 mt-5 fs-5">- Construcción -</h2>
                             <p class="fs-6 mb-4">Los diagramas ya construidos, son los siguientes:</p>
-                            <h2 class="section-title">Para encendido y apagado</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/ard_code.png" alt="..." /></figure>
-                            <h2 class="section-title">Para parpadeo</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_code_1.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 1 botón</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_code_2.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 2 botones y las compuertas</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/esp32_code_3.png" alt="..." /></figure>
+                            <h2 class="section-title">Arduino Uno con SCT013</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Conexion SCT-013 y Arduino .jpg" alt="..." /></figure>
+                            <h2 class="section-title">Arduino Uno con ESP32</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/ard_esp32_i2c.jpg" alt="..." /></figure>
                             
 
                         <p id="resultados">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
-                        <h2 class="section-title">Simulación Encendido</h2>
+                        <h2 class="section-title">Gráfica del sensor 1</h2>
                         <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_en_esp32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Apagado</h2>
+                        <h2 class="section-title">Gráfica del sensor 2</h2>
                         <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Parpadeo</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Parpadeo led.mp4" type="video/mp4">
+                        <h2 class="section-title">Gráfica del sensor 3</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
                         </video></p></figure>
-                        <h2 class="section-title">Simulación con un boton</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Led con boton.mp4" type="video/mp4">
-                        </video></p></figure>
-                        <h2 class="section-title">Simulación de comuperta OR</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/OR.mp4" type="video/mp4">
-                        </video></p></figure>
-                        <h2 class="section-title">Simulación de compuerta AND</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/AND.mp4" type="video/mp4">
-                        </video></p></figure>
+                        <h2 class="section-title">Gráfica del sensor 4</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
+                        <h2 class="section-title">Gráfica del sensor 5</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
+                        <p class="fs-6 mb-4">Link hacia Thignspeak para el monitoreo en tiempo real:</p>
+                        <p class="fs-6 mb-4"></p>
+                        
 
                         <p id="conclusiones">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
-                        <p class="fs-6 mb-4">En esta práctica, se logró realizar la simulación de un circuito básico utilizando un ESP32 y un LED, comprobando el funcionamiento del microcontrolador al encender y apagar el LED en intervalos regulares. Se reforzaron conceptos clave como la configuración de pines de salida en el ESP32 y la implementación de retardos mediante la función ( delay).</p>
-                        <p class="fs-6 mb-4">Esta actividad permitió familiarizarse con el entorno de simulación de Wokwi, facilitando la prueba de código antes de implementarlo en hardware real. Además, se comprendió la importancia de estructurar correctamente el código en Arduino para lograr un control preciso de los dispositivos conectados.</p>
-                        <p class="fs-6 mb-4">En futuras prácticas, se explorarán interacciones más avanzadas con sensores y módulos de comunicación para ampliar las capacidades del ESP32 en proyectos más complejos.</p>
+                        <ul class="fs-6 mb-4">
+                            <li><strong>Validación del enfoque de medición:</strong> La práctica demuestra que es viable emplear el sensor SCT013 para la medición de corriente, utilizando un amplificador operacional LM358 para filtrar y amplificar la señal, lo que garantiza lecturas precisas y estables.</li>
+                            <li><strong>Integración de plataformas:</strong> Aunque inicialmente se presentaron dificultades con el uso directo de la ESP32, la implementación del Arduino Uno como dispositivo intermediario evidenció la capacidad de adaptación y la efectividad de la comunicación I2C para transferir datos de forma confiable.</li>
+                            <li><strong>Visualización y monitoreo en tiempo real:</strong> La transferencia de datos a través de la ESP32 a la plataforma ThingSpeak permite visualizar el comportamiento del consumo eléctrico en tiempo real, facilitando la supervisión y análisis de los sistemas monitorizados.</li>
+                            <li><strong>Flexibilidad y robustez del sistema:</strong> El proyecto resalta la importancia de contar con alternativas en el diseño de sistemas de adquisición de datos, demostrando que la integración de distintos dispositivos (Arduino Uno y ESP32) puede superar limitaciones técnicas y ofrecer soluciones robustas para aplicaciones de IoT.</li>
+                            <li><strong>Aplicaciones prácticas y futuras mejoras:</strong> Los resultados obtenidos abren la puerta a la aplicación del sistema en entornos residenciales, comerciales e industriales. Como recomendaciones para futuras iteraciones, se sugiere optimizar el filtrado de la señal, mejorar la eficiencia de la comunicación y explorar algoritmos de análisis avanzado para incrementar la funcionalidad y la precisión del sistema.</li>
+                        </ul>
 
                         <p id="referencias">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
