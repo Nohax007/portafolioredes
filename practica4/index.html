@@ -72,7 +72,7 @@
                     <!-- Post header-->
                     <header class="mb-4">
                         <!-- Post title-->
-                        <h1 class="fw-bolder mb-1">Práctica 4: ESP32 WiFi HTML</h1>
+                        <h1 class="fw-bolder mb-1">Práctica 4: ESP32 y Thingspeak</h1>
 
                         <!-- ETIQUETA DE ALUMNO (Hacer una por cada alumno)-->
                             <img class="img-fluid rounded-circle" width="50px" src="assets/Noé.jpg" alt="..." />
@@ -87,7 +87,7 @@
                         <div class="text-muted fst-italic mt-2 mb-2">Fecha: Febrero 24, 2025</div>
                         <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
                         <a class="badge bg-primary text-decoration-none link-light" >ESP32</a>
-                        <a class="badge bg-primary text-decoration-none link-light" >IoT</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >Thingspeak</a>
 
                     </header>
                 </div>
@@ -97,138 +97,99 @@
             <section>
                 <div class="container px-5">
 
-                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/esp32.jpg" alt="..." /></figure>
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/ESP32-Send-Sensor-Readings-to-ThingSpeak.jpg" alt="..." /></figure>
                                 
                     <p id="resumen">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4">Se implementa un sistema IoT con ESP32 que integra un sensor PIR, un sensor DHT22, un botón y un potenciómetro. Los datos obtenidos se transmiten a ThingSpeak para su visualización y análisis en tiempo real.</p>
                         
                         <p id="intro">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <ul class="fs-6 mb-4">
-                            <li><strong></strong>.</li>
-                            <li><strong></strong>.</li>
-                            <li><strong></strong>.</li>
-                            <li><strong></strong>.</li>
-                            <li> <strong></strong>  <strong></strong>.</li>
-                        </ul>
-                        <p class="fs-6 mb-4"></strong></p>
-                        <p class="fs-6 mb-4"> <strong></strong> </p>
-                        <ul class="fs-6 mb-4">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                        <p class="fs-6 mb-4"><strong></strong> </strong></p>
+                        <p class="fs-6 mb-4">El Internet de las Cosas (IoT) está revolucionando la manera en la que interactuamos con el entorno, permitiendo la conexión e integración de dispositivos físicos a redes digitales para el monitoreo, análisis y control en tiempo real. En esta práctica, se utiliza el microcontrolador ESP32, reconocido por su versatilidad y capacidad de procesamiento, para centralizar la adquisición de datos de diversos sensores y dispositivos de entrada. Entre ellos se incluyen un sensor PIR para la detección de movimiento, un sensor DHT22 para medir temperatura y humedad, un botón y un potenciómetro, los cuales se tratan en conjunto como fuentes de información ambiental y de interacción del usuario.</p>
+                        <p class="fs-6 mb-4">El objetivo principal es recopilar datos en tiempo real y transmitirlos a la plataforma ThingSpeak, facilitando la visualización y el análisis remoto mediante gráficos y otras herramientas de interpretación. ThingSpeak se posiciona como una solución ideal para proyectos IoT gracias a su facilidad de uso, integración con MATLAB y capacidad para manejar múltiples canales de datos simultáneamente. Además, el uso de un ESP32 en conjunto con estos sensores permite experimentar con la programación y la interconexión de hardware y software, aspectos fundamentales en el desarrollo de aplicaciones IoT modernas.</p>
+                        <p class="fs-6 mb-4">Esta práctica no solo refuerza conceptos básicos de electrónica y programación en entornos embebidos, sino que también brinda una experiencia práctica en la implementación de sistemas de monitoreo ambiental. La integración de sensores variados permite evaluar tanto la precisión de la adquisición de datos como la eficiencia en la transmisión y visualización de la información en la nube. Asimismo, se abordan temas de comunicación inalámbrica, manejo de datos y desarrollo de interfaces gráficas, elementos cruciales para la construcción de soluciones tecnológicas avanzadas.</p>
+                        <p class="fs-6 mb-4">La elección del ESP32 se debe a su conectividad WiFi integrada, lo cual simplifica la conexión a internet y la comunicación con plataformas como ThingSpeak. De igual manera, el uso del sensor DHT22 y el PIR provee una combinación robusta para evaluar tanto condiciones ambientales como la presencia o movimiento en un área determinada. El botón y el potenciómetro, por otro lado, aportan una dimensión interactiva que permite simular condiciones de entrada manual, abriendo la puerta a aplicaciones más complejas en el ámbito del control y la automatización.</p>
+                        <p class="fs-6 mb-4">Esta práctica se apoya en diversas fuentes de información técnica y tutoriales especializados, lo que facilita el entendimiento y la implementación de cada componente en el sistema IoT. La documentación oficial del ESP32, los tutoriales de Adafruit para el DHT22 y los recursos de ThingSpeak constituyen pilares esenciales para el éxito del proyecto, proporcionando el conocimiento necesario para integrar y optimizar cada parte del sistema.</p>
                         
                         <p id="materiales">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
                         <p class="fs-6 mb-4">Los materiales utilizados para esta práctica son los siguientes:</p>
                         <ul class="fs-6 mb-4">
                             <li>ESP32</li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li>Thinspeak</li>
+                            <li>Potenciometro</li>
+                            <li>LED</li>
+                            <li>Push button</li>
+                            <li>Sensor de temperatura y humedad (DHT22)</li>
+                            <li>Sensor de movimiento (PIR)</li>
+                            <li>Resistencias (de 220 para el led y 10k ohms para el boton).</li>
                         </ul>
                         
                         <p id="desarrollo">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
-                        <p class="fs-6 mb-4">Se desarrollaron primero las simulaciones en WOKWI donde se hicieron las conexiones a manera digital junto con su programación para...</p>
-                        <p class="fs-6 mb-4">Después se implementó a fisíco con la materiales antes dichos, usando ESP32, ...</p>
+                        <p class="fs-6 mb-4">Se desarrollaron primero las simulaciones en WOKWI donde se hicieron las conexiones a manera digital junto con su programación para comprobar el correcto funcionamiento del circuito y sus integrados.</p>
+                        <p class="fs-6 mb-4">Después se implementó a fisíco con la materiales antes dichos, usando ESP32, potenciometro, 2 resistencias, push button, led, PIR y el DHT22.</p>
                         
                             <p id="simulacion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
-                            <p class="fs-6 mb-4">Las simulaciones son las siguientes:</p>
-                            <h2 class="section-title">Simulación Encendido</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_en.png" alt="..." /></figure>
+                            <p class="fs-6 mb-4">La simulación es la siguiente:</p>
+                            <h2 class="section-title">Simulación del circuito en WOKWI</h2>
                             <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-ON.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación Apagado</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_ap.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-OFF.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación Parpadeo</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/parpadeo.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-PARPADEO.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación con un boton</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_led_bot.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-Boton.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación de comuperta OR</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_OR.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-OR.mp4" type="video/mp4">
-                            </video></p></figure>
-                            <h2 class="section-title">Simulación de compuerta AND</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/sim_AND.png" alt="..." /></figure>
-                            <figure class="mb-4" align="center"><video width="80%"  controls>
-                                <source src="video/ESP32-AND.mp4" type="video/mp4">
+                                <source src="video/Wokwi - Online ESP32.mp4" type="video/mp4">
                             </video></p></figure>
                             
                             <p id="construccion">
                             <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
-                            <p class="fs-6 mb-4">Los diagramas ya construidos, son los siguientes:</p>
-                            <h2 class="section-title">Para encendido y apagado</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
-                            <h2 class="section-title">Para parpadeo</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_en_esp32.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 1 botón</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_bot.png" alt="..." /></figure>
-                            <h2 class="section-title">Para 2 botones y las compuertas</h2>
-                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_bots.png" alt="..." /></figure>
+                            <p class="fs-6 mb-4">El diagrama ya construido es el siguiente:</p>
+                            <h2 class="section-title">Circuito de la práctica</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/circuito_prac4.jpg" alt="..." /></figure>
                             
 
                         <p id="resultados">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
-                        <h2 class="section-title">Simulación Encendido</h2>
-                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_en_esp32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Apagado</h2>
-                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/Led_ap_ESP32.png" alt="..." /></figure>
-                        <h2 class="section-title">Simulación Parpadeo</h2>
+                        <h2 class="section-title">Simulación 1</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Parpadeo led.mp4" type="video/mp4">
+                            <source src="video/res1_prac4.mp4" type="video/mp4">
                         </video></p></figure>
-                        <h2 class="section-title">Simulación con un boton</h2>
+                        <h2 class="section-title">Simulación 2</h2>
                         <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/Led con boton.mp4" type="video/mp4">
+                            <source src="video/res2_prac4.mp4" type="video/mp4">
                         </video></p></figure>
-                        <h2 class="section-title">Simulación de comuperta OR</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/OR.mp4" type="video/mp4">
-                        </video></p></figure>
-                        <h2 class="section-title">Simulación de compuerta AND</h2>
-                        <figure class="mb-4" align="center"><video width="80%"  controls>
-                            <source src="video/AND.mp4" type="video/mp4">
-                        </video></p></figure>
+                        <h2 class="section-title">Grafica del potenciometro</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title">Grafica del boton</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title">Grafica del PIR</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title">Grafica del DHT22</h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title">Link para el Thinspeak</h2>
+                        <p class="fs-6 mb-4">El link para el Thinspeak es el siguiente: <a href="">Thingspeak</a></p>
 
                         <p id="conclusiones">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
+                        <ul class="fs-6 mb-4">
+                            <li>La integración de múltiples sensores (PIR, DHT22, botón y potenciómetro) con el ESP32 permitió demostrar la versatilidad y eficacia de los sistemas IoT para la adquisición de datos en tiempo real.</li>
+                            <li>La práctica evidenció la importancia de una correcta configuración y sincronización entre hardware y software para garantizar la recolección y transmisión de información de manera estable y confiable.</li>
+                            <li>El uso de la plataforma ThingSpeak facilitó la visualización y el análisis de los datos, resaltando su utilidad para el monitoreo remoto y el seguimiento de variables ambientales e interactivas.</li>
+                            <li>Se adquirieron conocimientos fundamentales sobre comunicación inalámbrica, protocolos de transmisión de datos y manejo de múltiples dispositivos, lo que resulta aplicable en el desarrollo de proyectos IoT más complejos.</li>
+                            <li>La experiencia permitió identificar y resolver desafíos técnicos relacionados con la integración de componentes, contribuyendo al aprendizaje práctico y a la mejora continua en el diseño de soluciones embebidas.</li>
+                        </ul>
 
                         <p id="referencias">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
-                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4">Adafruit Industries. (n.d.). DHT sensor tutorial. Recuperado de https://learn.adafruit.com/dht</p>
+                        <p class="fs-6 mb-4">Arduino. (n.d.). Arduino tutorials. Recuperado de https://www.arduino.cc/en/Tutorial/HomePage</p>
+                        <p class="fs-6 mb-4">Banerjee, R., & Bhattacharya, S. (2020). IoT-driven wireless sensor networks: Recent trends, challenges, and opportunities. En Internet of Things for Smart Community Applications (pp. 15-29). Springer.</p>
+                        <p class="fs-6 mb-4">Bandyopadhyay, D., & Sen, J. (2011). Internet of Things: Applications and challenges in technology and standardization. Wireless Personal Communications, 58(1), 49-69.</p>
+                        <p class="fs-6 mb-4">Espressif Systems. (n.d.). ESP32. Recuperado de https://www.espressif.com/en/products/socs/esp32</p>
+                        <p class="fs-6 mb-4">Gubbi, J., Buyya, R., Marusic, S., & Palaniswami, M. (2013). Internet of Things (IoT): A vision, architectural elements, and future directions. Future Generation Computer Systems, 29(7), 1645-1660.</p>
+                        <p class="fs-6 mb-4">Khan, R., Khan, S. U., Zaheer, R., & Khan, S. (2012). Future Internet: The Internet of Things architecture, possible applications and key challenges. En 2012 10th International Conference on Frontiers of Information Technology (pp. 257-260). IEEE.</p>
+                        <p class="fs-6 mb-4">ThingSpeak. (n.d.). ThingSpeak documentation. Recuperado de https://thingspeak.com/docs</p>
                         <p id="descargables">
                         <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
-                        <p class="fs-6 mb-4">Descargar documento Power Point: <a href="files/PRÁCTICA 1.docx">PRÁCTICA 1.docx</a> </p>
+                        <p class="fs-6 mb-4">Descargar documento Power Point: <a href="files/3_1_ESP32 - Backend y PHP.pptx">3_1_ESP32 - Backend y PHP.pptx</a> </p>
+                        <p class="fs-6 mb-4">Descargar documento Power Point: <a href="files/3_2_ESP32 - Frontend.pptx">3_2_ESP32 - Frontend.pptx</a> </p>
                         
 
                 </div>
