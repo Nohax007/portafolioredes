@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Práctica 5 | Ibero Puebla</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionamos los enlaces de Inicio, Acerca del equipo y Prácticas
+            const links = document.querySelectorAll('.nav-item a');
+    
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace se ejecute inmediatamente
+    
+                    // Muestra la ventana de confirmación
+                    let confirmation = confirm("¿Estás seguro de que deseas salir del sitio?");
+                    
+                    if (confirmation) {
+                        window.location.href = this.href; // Redirige si el usuario confirma
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container px-5">
+                    <a class="navbar-brand">Menu</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="../">Inicio</a></li>                    
+                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca del equipo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#practicas">Prácticas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Seccion TITULO de Portafolio-->
+            <header class="bg-primary py-2 mt-6">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-6 fw-bolder text-white mb-2">Portafolio de Actividades</h1>
+                                <h1 class="display-8 fw-bolder text-white mb-2">Laboratorio de Redes Digitales</h1>
+                                <p id="resumen" class="display-8 fw-normal text-white-50 mb-4">Departamento de Ciencias e Ingenierías | Universidad Iberoamericana Puebla, México.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Seccion TITULO de la Práctica-->
+            <section class="py-3" id="scroll-target">
+                <div class="container px-5 my-2">
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Práctica 5: Cables de Red</h1>
+
+                        <!-- ETIQUETA DE ALUMNO (Hacer una por cada alumno)-->
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Noé.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Horca.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Fernando.png" alt="..." />
+                            <div class="ms-2">
+                                <div class="fw-bold">Noé Aguirre Gallegos, Diego Horcasitas Vera y Fernando Diaz Abascal</div>
+                                <div class="text-muted">Ingeniería Mecatrónica</div>
+                            </div>
+                        <!--Aqui termina etiqueta de alumno-->
+
+                        <div class="text-muted fst-italic mt-2 mb-2">Fecha: Marzo 7, 2025</div>
+                        <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
+                        <a class="badge bg-primary text-decoration-none link-light" >IoT</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >RJ45</a>
+
+                    </header>
+                </div>
+            </section>
+
+            <!-- Seccion de CONTENIDO de la Práctica-->
+            <section>
+                <div class="container px-5">
+
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/tipos-de-cable-red-1-scaled.jpg" alt="..." /></figure>
+                                
+                    <p id="resumen">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
+                        <p class="fs-6 mb-4">En esta práctica se realizaron cables de red.</p>
+                        <p class="fs-6 mb-4">Se realizaorn con cables de par trenzado y se utilizo un tester para comprobar su funcionamiento.</p>
+                        
+                        <p id="intro">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
+                        <p class="fs-6 mb-4">Los cables de red estructurados permiten la conexión física en redes informáticas y se emplean principalmente para conectar equipos dentro de una red local (LAN). Dos tipos fundamentales de cables estructurados son los cables directos y cruzados, cada uno con configuraciones específicas que determinan su uso práctico.</p>
+                        <h2 class="section-title">Cable Directo</h2>
+                        <p class="fs-6 mb-4">El cable directo, o cable recto, tiene la misma configuración en ambos extremos, generalmente siguiendo la norma T568A o T568B. Este tipo de cable se utiliza para conectar dispositivos diferentes, por ejemplo, conectar un ordenador a un switch o router.</p>
+                        <h2 class="section-title">Cable Cruzado</h2>
+                        <p class="fs-6 mb-4">El cable cruzado tiene una configuración distinta en cada extremo, combinando normas T568A y T568B. Es utilizado para conectar dispositivos del mismo tipo, como dos computadoras directamente o dos switches entre sí.</p>
+                        <h2 class="section-title">Prueba de cables</h2>
+                        <p class="fs-6 mb-4">La prueba de funcionamiento para ambos tipos de cables se realiza con un probador de cables de red. Estos dispositivos verifican la continuidad, la correcta configuración de los pines y la integridad física del cable. En el caso específico del cable cruzado, además se revisa cuidadosamente que la configuración T568A y T568B se encuentre correctamente aplicada.</p>
+                        
+                        <p id="materiales">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
+                        <p class="fs-6 mb-4">Los materiales utilizados para esta práctica son los siguientes:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>Cable de red para armar</li>
+                            <li>Cabezales de ethernet</li>
+                            <li>Pinza ponchadora de cable de red</li>
+                            <li>Tester</li>
+                        </ul>
+                        
+                        <p id="desarrollo">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
+                        <p class="fs-6 mb-4">Primero se pela el cable UTP en este caso del cable de red, después se desenredan los cables que son filamentos perqueños de cobre, los pares trenzados.</p>
+                        <p class="fs-6 mb-4">Se meten dentro del conector RJ45 y para finalizar se prueban con una herramienta llamada Tester, aunque se puede usar el multimetro igual.</p>
+                            
+                            <p id="construccion">
+                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
+                            <p class="fs-6 mb-4">Los cables ya armados son los siguientes:</p>
+                            <h2 class="section-title">Cables cruzados</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/cables_cruzados.jpg" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/cable_cruzado.jpg" alt="..." /></figure>
+                            <h2 class="section-title">Cables directos</h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/cables_directos.jpg" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/cable_directo.jpg" alt="..." /></figure>  
+
+                        <p id="resultados">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
+                        <p class="fs-6 mb-4">Las pruebas de su funcionamiento se realizan mediante el tester.</p>
+                        <h2 class="section-title">Prueba de cable cruzado</h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/cab_cruz.mp4" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title">Prueba del cable directo</h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/cab_direc.mp4" type="video/mp4">
+                        </video></p></figure>
+
+                        <p id="conclusiones">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
+                        <ul class="fs-6 mb-4">
+                            <li><strong>Conocimiento y aplicación de los estándares de cableado (T568A y T568B):</strong></li>
+                            <p class="fs-6 mb-4">Durante la práctica se profundizó en el manejo de los estándares T568A y T568B, esenciales para garantizar la interoperabilidad entre dispositivos. Se evidenció que conocer la normativa y las diferencias entre ambos esquemas de cableado resulta fundamental para planificar y ejecutar correctamente la instalación de una red. Además, aplicar el estándar correcto evita incompatibilidades y posibles problemas de comunicación en la red.</p>
+                            <li><strong>Identificación y diferenciación entre cable directo y cable cruzado:</strong></li>
+                            <p class="fs-6 mb-4">Se destacó la importancia de distinguir entre cable directo y cable cruzado, ya que cada uno tiene aplicaciones específicas en la configuración de redes. El cable directo se utiliza para conectar dispositivos heterogéneos (como un computador a un switch), mientras que el cable cruzado se emplea para interconectar dispositivos similares (por ejemplo, dos computadoras). Esta diferenciación es crucial para asegurar la correcta transmisión de datos sin interferencias.</p>
+                            <li><strong>Precisión en la instalación física del cableado:</strong></li>
+                            <p class="fs-6 mb-4">La práctica evidenció la relevancia de una instalación meticulosa y ordenada. Aspectos como el pelado adecuado de los conductores, mantener una secuencia precisa de colores y usar la presión correcta durante el crimpado son determinantes para la calidad final del cable. La atención a los detalles durante la preparación y ensamblaje del cable garantiza la fiabilidad de la conexión, reduciendo el riesgo de errores o fallas en la comunicación.</p>
+                            <li><strong>Importancia de la verificación y pruebas de cableado:</strong></li>
+                            <p class="fs-6 mb-4">Tras la elaboración de cada cable, es imprescindible realizar pruebas de continuidad y de asignación correcta de pines utilizando un probador de cables. Esta fase de verificación no solo confirma que la conexión es óptima, sino que también previene posibles inconvenientes en el futuro, como desconexiones o pérdida de señal. La prueba de cableado se convierte en un paso fundamental para validar el trabajo realizado y asegurar que los cables funcionan correctamente dentro de la red.</p>
+                            <li><strong>Adopción de buenas prácticas y medidas de seguridad:</strong></li>
+                            <p class="fs-6 mb-4">A lo largo de la práctica se resaltó la necesidad de trabajar de manera organizada, aplicando buenas prácticas en la manipulación de herramientas y componentes. Usar de forma adecuada la crimpadora y el pelacables, así como observar las normas de seguridad, contribuye a la prevención de accidentes y a la minimización de errores. La metodología empleada refuerza un enfoque profesional que es aplicable en cualquier instalación de redes, promoviendo la eficiencia y la calidad en el trabajo final.</p>
+                        </ul>
+
+                        <p id="referencias">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
+                        <p class="fs-6 mb-4">Cisco Systems. (2021). Cableado estructurado y tipos de cables. Cisco. Recuperado de https://www.cisco.com/c/es_mx/support/docs/lan-switching/ethernet/10561-3.html</p>
+                        <p class="fs-6 mb-4">Belden Inc. (2022). Structured Cabling Basics. Belden. Recuperado de https://www.belden.com/blogs/smart-building/structured-cabling-basics</p>
+                        <p class="fs-6 mb-4">Panduit Corp. (2021). Guía técnica sobre cableado estructurado. Panduit. Recuperado de https://www.panduit.com/content/dam/panduit/en/resources/technical-reference-guides/structured-cabling-guide.pdf</p>
+                        <p class="fs-6 mb-4">CommScope. (2023). Cómo verificar y solucionar problemas de cables de red. CommScope. Recuperado de https://es.commscope.com/resources/white-papers/how-to-verify-and-troubleshoot-network-cabling/</p>
+                        <p class="fs-6 mb-4">Fluke Networks. (2022). Cable testing basics. Fluke Networks. Recuperado de https://es.flukenetworks.com/knowledge-base/cable-testing-basics</p>
+                        
+                        <p id="descargables">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
+                        <p class="fs-6 mb-4">Descargar documento Word: <a href="files/PRÁCTICA 5 Cable de red.docx">PRÁCTICA 5.docx</a> </p>
+                        
+
+                </div>
+            </section>
+
+            
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

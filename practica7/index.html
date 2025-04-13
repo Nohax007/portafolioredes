@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Práctica 7 | Ibero Puebla</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionamos los enlaces de Inicio, Acerca del equipo y Prácticas
+            const links = document.querySelectorAll('.nav-item a');
+    
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace se ejecute inmediatamente
+    
+                    // Muestra la ventana de confirmación
+                    let confirmation = confirm("¿Estás seguro de que deseas salir del sitio?");
+                    
+                    if (confirmation) {
+                        window.location.href = this.href; // Redirige si el usuario confirma
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container px-5">
+                    <a class="navbar-brand">Menu</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="../">Inicio</a></li>                    
+                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca del equipo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#practicas">Prácticas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Seccion TITULO de Portafolio-->
+            <header class="bg-primary py-2 mt-6">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-6 fw-bolder text-white mb-2">Portafolio de Actividades</h1>
+                                <h1 class="display-8 fw-bolder text-white mb-2">Laboratorio de Redes Digitales</h1>
+                                <p id="resumen" class="display-8 fw-normal text-white-50 mb-4">Departamento de Ciencias e Ingenierías | Universidad Iberoamericana Puebla, México.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Seccion TITULO de la Práctica-->
+            <section class="py-3" id="scroll-target">
+                <div class="container px-5 my-2">
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Práctica 7: Redes de computadora con Switches y Cables</h1>
+
+                        <!-- ETIQUETA DE ALUMNO (Hacer una por cada alumno)-->
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Noé.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Horca.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Fernando.png" alt="..." />
+                            <div class="ms-2">
+                                <div class="fw-bold">Noé Aguirre Gallegos, Diego Horcasitas Vera y Fernando Diaz Abascal</div>
+                                <div class="text-muted">Ingeniería Mecatrónica</div>
+                            </div>
+                        <!--Aqui termina etiqueta de alumno-->
+
+                        <div class="text-muted fst-italic mt-2 mb-2">Fecha: Marzo 7, 2025</div>
+                        <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
+                        <a class="badge bg-primary text-decoration-none link-light" >IoT</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >Redes</a>
+
+                    </header>
+                </div>
+            </section>
+
+            <!-- Seccion de CONTENIDO de la Práctica-->
+            <section>
+                <div class="container px-5">
+
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/redes_cn_switch_cables_y_routers.webp" alt="..." /></figure>
+                                
+                    <p id="resumen">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4">s</p>
+                        
+                        <p id="intro">
+                            <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
+                            <p class="fs-6 mb-4">Las redes de computadoras en entornos locales (LAN) permiten la interconexión de múltiples dispositivos para compartir recursos, servicios y datos. La práctica con switches y routers es fundamental para entender la estructura de redes pequeñas y medianas.</p>
+                            <h2 class="section-title">Funcionamiento del switch y del router</h2>
+                            <p class="fs-6 mb-4">El switch es un dispositivo de red que conecta múltiples computadoras dentro de una red local. Su función principal es recibir, procesar y reenviar datos hacia el dispositivo de destino. Opera en la capa 2 del modelo OSI (enlace de datos).</p>
+                            <p class="fs-6 mb-4">El router, por otro lado, conecta diferentes redes entre sí y se encarga de dirigir el tráfico entre ellas. Opera en la capa 3 del modelo OSI (red) y asigna direcciones IP a los dispositivos conectados.</p>
+                            <h2 class="section-title">Diseño de red con switch</h2>
+                            <p class="fs-6 mb-4">Para configurar una red con un switch:</p>
+                            <ol class="fs-6 mb-4">
+                                <li>Se utilizan cables de red directos.</li>
+                                <li>Se conecta el switch a un mínimo de 3 computadoras.</li>
+                                <li>Una de las computadoras funciona como servidor local.</li>
+                                <li>Se usa la asignación automática de IP (DHCP).</li>
+                                <li>Se verifica la conectividad mediante el comando PING y el acceso al sitio web del servidor.</li>
+                            </ol>
+                            <h2 class="section-title">Diseño de red con router</h2>
+                            <p class="fs-6 mb-4">Para configurar una red con un router:</p>
+                            <ol class="fs-6 mb-4">
+                                <li>Se utiliza un router con capacidad para conexión alámbrica e inalámbrica.</li>
+                                <li>Se conecta al menos 3 computadoras, una de ellas como servidor.</li>
+                                <li>Se asignan IP automáticamente a través del router.</li>
+                                <li>Se comprueba la comunicación entre dispositivos y el acceso al servidor.</li>
+                            </ol>
+                            <h2 class="section-title">Unión de ambas redes</h2>
+                            <p class="fs-6 mb-4">Para integrar las redes con switch y router:</p>
+                            <ol class="fs-6 mb-4">
+                                <li>Se identifican los cables adecuados (puede requerirse cable cruzado para ciertas conexiones).</li>
+                                <li>Se habilita la asignación automática de IP.</li>
+                                <li>Se comprueba la conectividad total mediante PING y el intercambio de archivos entre computadoras de ambas redes.</li>
+                            </ol>
+                        
+                        <p id="materiales">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
+                        <p class="fs-6 mb-4">Los materiales utilizados para esta práctica son los siguientes:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>6 computadoras</li>
+                            <li>1 switch</li>
+                            <li>1 router</li>
+                            <li>Cables de red directos y cruzados</li>
+                        </ul>
+                        
+                        <p id="desarrollo">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+                        
+                            <p id="simulacion">
+                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
+                            <p class="fs-6 mb-4"></p>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            
+                            <p id="construccion">
+                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
+                            <p class="fs-6 mb-4"></p>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            
+
+                        <p id="resultados">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+
+                        <p id="conclusiones">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+
+                        <p id="referencias">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
+                        <p class="fs-6 mb-4">Cisco. (2022). Fundamentos de redes. Recuperado de https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/what-is-a-network.html</p>
+                        <p class="fs-6 mb-4">TP-Link. (2023). ¿Cuál es la diferencia entre un router y un switch? Recuperado de https://www.tp-link.com/es/support/faq/1365/</p>
+                        <p class="fs-6 mb-4">IBM. (2021). Networking basics. Recuperado de https://www.ibm.com/cloud/learn/networking-a-complete-guide</p>
+                        <p class="fs-6 mb-4">Netgear. (2024). Cómo configurar una red doméstica. Recuperado de https://www.netgear.com/support/product/Configure-Home-Network/</p>
+                        <p class="fs-6 mb-4">Lifewire. (2023). How to Use the Ping Command. Recuperado de https://www.lifewire.com/how-to-use-ping-command-2624579</p>
+                        
+                        
+                        <p id="descargables">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
+                        <p class="fs-6 mb-4">Descargar documento Word: <a href="files/PRÁCTICA 7 redes locales.docx">PRÁCTICA 7.docx</a> </p>
+                        
+
+                </div>
+            </section>
+
+            
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

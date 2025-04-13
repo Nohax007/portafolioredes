@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Práctica 6 | Ibero Puebla</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleccionamos los enlaces de Inicio, Acerca del equipo y Prácticas
+            const links = document.querySelectorAll('.nav-item a');
+    
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Evita que el enlace se ejecute inmediatamente
+    
+                    // Muestra la ventana de confirmación
+                    let confirmation = confirm("¿Estás seguro de que deseas salir del sitio?");
+                    
+                    if (confirmation) {
+                        window.location.href = this.href; // Redirige si el usuario confirma
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container px-5">
+                    <a class="navbar-brand">Menu</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="../">Inicio</a></li>                    
+                            <li class="nav-item"><a class="nav-link" href="../index.html#resumen">Acerca del equipo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.html#practicas">Prácticas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Seccion TITULO de Portafolio-->
+            <header class="bg-primary py-2 mt-6">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-6 fw-bolder text-white mb-2">Portafolio de Actividades</h1>
+                                <h1 class="display-8 fw-bolder text-white mb-2">Laboratorio de Redes Digitales</h1>
+                                <p id="resumen" class="display-8 fw-normal text-white-50 mb-4">Departamento de Ciencias e Ingenierías | Universidad Iberoamericana Puebla, México.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Seccion TITULO de la Práctica-->
+            <section class="py-3" id="scroll-target">
+                <div class="container px-5 my-2">
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Práctica 6: Configuración de servidor para Red Local </h1>
+
+                        <!-- ETIQUETA DE ALUMNO (Hacer una por cada alumno)-->
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Noé.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Horca.jpg" alt="..." />
+                            <img class="img-fluid rounded-circle" width="50px" src="assets/Fernando.png" alt="..." />
+                            <div class="ms-2">
+                                <div class="fw-bold">Noé Aguirre Gallegos, Diego Horcasitas Vera y Fernando Diaz Abascal</div>
+                                <div class="text-muted">Ingeniería Mecatrónica</div>
+                            </div>
+                        <!--Aqui termina etiqueta de alumno-->
+
+                        <div class="text-muted fst-italic mt-2 mb-2">Fecha: Marzo 7, 2025</div>
+                        <!-- ETIQUETAS O TOPICOS IMPORTANTES DE LA PRACTICA-->
+                        <a class="badge bg-primary text-decoration-none link-light" >IoT</a>
+                        <a class="badge bg-primary text-decoration-none link-light" >XAMPP</a>
+
+                    </header>
+                </div>
+            </section>
+
+            <!-- Seccion de CONTENIDO de la Práctica-->
+            <section>
+                <div class="container px-5">
+
+                    <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="img/Aplicación-con-Base-de-Datos-en-Red-Local-LAN-MAN.jpg" alt="..." /></figure>
+                                
+                    <p id="resumen">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Resumen -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+                        
+                        <p id="intro">
+                            <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Introducción -</h2>
+                            <p class="fs-6 mb-4">La configuración de un servidor local permite simular un entorno de alojamiento web sin necesidad de contar con un servidor externo. Esta práctica es común en entornos de desarrollo, educación o redes pequeñas. XAMPP es una de las herramientas más utilizadas para este fin.</p>
+                            <h2 class="section-title">Instalación de XAMPP y habilitación de servicios</h2>
+                            <p class="fs-6 mb-4">XAMPP es un paquete que incluye Apache, MySQL, PHP y Perl. Para configurar un servidor local:</p>
+                            <ol class="fs-6 mb-4">
+                                <li>Se descarga desde su sitio oficial.</li>
+                                <li>Se instala en el equipo.</li>
+                                <li>Se habilita el servicio Apache desde el panel de control de XAMPP.</li>
+                                <li>Se coloca el sitio web en la carpeta "htdocs" para ser servido localmente.</li>
+                            </ol>
+                            <h2 class="section-title">Configuración del firewall y acceso al puerto 80</h2>
+                            <p class="fs-6 mb-4">El firewall de Windows u otros sistemas puede bloquear el acceso al servidor. Se debe permitir el acceso al puerto 80, que es utilizado por Apache para servir páginas web.</p>
+                            <h2 class="section-title">Identificación de la IP del servidor</h2>
+                            <p class="fs-6 mb-4">Para que otros dispositivos accedan al sitio web local, deben estar conectados a la misma red. La IP local del equipo servidor se obtiene mediante el comando "ipconfig" en Windows. Esta IP se usa como URL en otros dispositivos.</p>
+                            <h2 class="section-title">Comprobación de acceso desde otros dispositivos</h2>
+                            <p class="fs-6 mb-4">Con la IP del servidor y los servicios en funcionamiento, otros dispositivos de la misma red pueden acceder al sitio ingresando la IP en el navegador. Esto permite validar la correcta configuración del servidor local.</p>
+                        
+                        <p id="materiales">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5" >- Materiales -</h2>
+                        <p class="fs-6 mb-4">Los materiales utilizados para esta práctica son los siguientes:</p>
+                        <ul class="fs-6 mb-4">
+                            <li>3 computadoras o laptops diferentes</li>
+                            <li>1 computadora o laptop administradora</li>
+                            <li>XAMPP</li>
+                        </ul>
+                        
+                        <p id="desarrollo">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Desarrollo -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+                        
+                            <p id="simulacion">
+                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Simulación</h1>
+                            <p class="fs-6 mb-4"></p>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <figure class="mb-4" align="center"><video width="80%"  controls>
+                                <source src="video/" type="video/mp4">
+                            </video></p></figure>
+                            
+                            <p id="construccion">
+                            <h1 class="fw-bolder2 mb-4 mt-5 fs-5">Construcción</h1>
+                            <p class="fs-6 mb-4"></p>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            <h2 class="section-title"></h2>
+                            <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                            
+
+                        <p id="resultados">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Resultados -</h2>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><img class="img-fluid rounded"  width="600px" src="img/" alt="..." /></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+                        <h2 class="section-title"></h2>
+                        <figure class="mb-4" align="center"><video width="80%"  controls>
+                            <source src="video/" type="video/mp4">
+                        </video></p></figure>
+
+                        <p id="conclusiones">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Conclusiones -</h2>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+                        <p class="fs-6 mb-4"></p>
+
+                        <p id="referencias">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Referencias -</h2>
+                        <p class="fs-6 mb-4">Apache Friends. (s.f.). XAMPP for Windows. Recuperado el 12 de abril de 2025, de https://www.apachefriends.org/es/index.html</p>
+                        <p class="fs-6 mb-4">Microsoft. (2023). Abrir un puerto en el firewall de Windows. Recuperado de https://support.microsoft.com/es-es/windows/abrir-un-puerto-en-el-firewall-de-windows-10-a87f8494-ffb7-9b53-1e3f-61ad2d9bb64c</p>
+                        <p class="fs-6 mb-4">Oracle. (2022). Cómo encontrar su dirección IP en Windows. Recuperado de https://www.oracle.com/technical-resources/articles/it-infrastructure/windows-ip-address.html</p>
+                        <p class="fs-6 mb-4">Hostinger. (2024). ¿Qué es XAMPP y cómo se usa? Recuperado de https://www.hostinger.es/tutoriales/que-es-xampp</p>
+                        <p class="fs-6 mb-4">Kinsta. (2023). Cómo permitir conexiones al servidor Apache. Recuperado de https://kinsta.com/es/base-de-conocimiento/permitir-conexiones-servidor-apache/</p>
+                        
+                        <p id="descargables">
+                        <h2 class="fw-bolder mb-4 mt-5 fs-5">- Descargables -</h2>
+                        <p class="fs-6 mb-4">Descargar documento Word: <a href="files/PRÁCTICA 6 Servidor Red Local.docx">PRÁCTICA 6.docx</a> </p>
+                        
+
+                </div>
+            </section>
+
+            
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
