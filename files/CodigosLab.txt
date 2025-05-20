@@ -1,0 +1,572 @@
+P1
+void setup() {
+ pinMode(23, OUTPUT);;
+}
+
+void loop() {
+  digitalWrite(23, LOW);
+}
+
+void setup() {
+ pinMode(23, OUTPUT);;
+}
+
+void loop() {
+  digitalWrite(23, HIGH);
+  delay(1000);
+  digitalWrite(23, LOW);
+  delay(1000);
+}
+void setup() {
+ pinMode(23, OUTPUT);;
+}
+
+void loop() {
+  digitalWrite(23, LOW);
+}
+int LED=23; //GPIO de LED 1 
+int Boton=21; //GPIO de Boton 1 
+
+int status_boton=0; 
+
+void setup() {
+pinMode(LED, OUTPUT); //GPIO 23 como Salida 
+pinMode (Boton, INPUT); 
+}
+
+void loop() {
+status_boton=digitalRead(Boton); //Leemos 
+digitalWrite(LED, status_boton); 
+}
+void setup() {
+ pinMode(23, OUTPUT);
+ pinMode(21, INPUT);
+}
+
+void loop() {
+  digitalWrite(23, digitalRead(21));
+}
+P2 y P3
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+// Puertos GPIO
+int boton = 33;
+int led = 32;
+ 
+// Variables status
+int status_boton = 0;
+ 
+//Thingspeak
+String url="https://api.thingspeak.com/update?"; //Server URL
+String api_key="8YHTZ0SP1VPFWVAZ"; //API key personal del tablero
+String sensor="field1";
+
+void setup() {
+    pinMode(led, OUTPUT);  // Configurar puerto 32 como salida
+    pinMode(boton, INPUT); // Configurar puerto 33 como entrada
+
+delay(1000);
+Serial.begin(115200);
+
+//Conect to wifi network
+WiFi.begin("Wokwi-GUEST", ""); //Wifi_Network, Wifi_Password ******CHANGE
+ 
+//Wait until connection
+while((WiFi.status() != WL_CONNECTED)) {
+    delay(500);
+    Serial.print(".");
+}
+ 
+Serial.println("Wifi connected");
+
+}
+ 
+void loop() {
+    status_boton = digitalRead(boton);
+ 
+    if (status_boton == 1) {
+        digitalWrite(led, HIGH);
+    } else {
+        digitalWrite(led, LOW);
+    }
+
+    //wait for WiFi connection
+  if((WiFi.status() == WL_CONNECTED)) {
+    // Start connection and send HTTP header, return error code
+    HTTPClient http;
+    String message = url + "api_key=" + api_key + "&" + sensor + "=" + String(status_boton);
+    http.begin(message); // HTTP
+ 
+    int httpCode = http.GET();
+    Serial.println(message);
+    Serial.print("GET code:");
+    Serial.println(httpCode);
+    http.end();
+}
+  delay(3000);
+}
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+// Definición de pines
+int pot = 33;
+int led = 32;
+ 
+// Variable para almacenar la lectura del sensor analógico
+int valor_analogico = 0;
+
+//Thingspeak
+String url="https://api.thingspeak.com/update?"; //Server URL
+String api_key="8YHTZ0SP1VPFWVAZ"; //API key personal del tablero
+String sensor="field1";
+
+void setup() {
+    pinMode(led, OUTPUT);  // Configurar el pin 32 como salida
+    // Serial.begin(115200); // Habilitar si se requiere monitoreo por el puerto serie
+    //Conect to wifi network
+    WiFi.begin("Wokwi-GUEST", ""); //Wifi_Network, Wifi_Password ******CHANGE
+
+    //Wait until connection
+  while((WiFi.status() != WL_CONNECTED)) {
+    delay(500);
+    Serial.print(".");
+}
+  Serial.println("Wifi connected");
+ 
+}
+ 
+void loop() {
+    valor_analogico = analogRead(pot); // Leer el valor del potenciómetro
+ 
+    // Serial.println(valor_analogico); // Descomentar si se requiere imprimir el valor en el monitor serie
+ 
+    if (valor_analogico >= 2048) {
+        digitalWrite(led, HIGH); // Encender el LED si el valor es mayor o igual a 2048
+    } else {
+        digitalWrite(led, LOW); // Apagar el LED si el valor es menor a 2048
+    }
+  if((WiFi.status() == WL_CONNECTED)) {
+    // Start connection and send HTTP header, return error code
+    HTTPClient http;
+    String message = url + "api_key=" + api_key + "&" + sensor + "=" + String(valor_analogico);
+    http.begin(message); // HTTP
+ 
+    int httpCode = http.GET();
+    Serial.println(message);
+    Serial.print("GET code:");
+    Serial.println(httpCode);
+    http.end();
+}
+  delay(3000);
+}
+// Librerías
+#include <DHT.h>
+#include <WiFi.h>
+#include <HTTPClient.h>
+ 
+// Definición del sensor DHT22
+#define DHTPIN 33      // Pin donde está conectado el sensor DHT22
+#define DHTTYPE DHT22  // Tipo de sensor DHT
+ 
+DHT dht(DHTPIN, DHTTYPE); // Inicialización del objeto DHT
+ 
+// Definición de pines
+int led = 32;
+ 
+// Variables para almacenar temperatura y humedad
+int valor_temperatura = 0;
+int valor_humedad = 0;
+
+//Thingspeak
+String url="https://api.thingspeak.com/update?"; //Server URL
+String api_key="8YHTZ0SP1VPFWVAZ"; //API key personal del tablero
+String sensor="field3";
+
+
+void setup() {
+    pinMode(led, OUTPUT);  // Configurar el pin del LED como salida
+    dht.begin(); 
+    
+    delay(1000);          // Inicializar el sensor DHT
+    Serial.begin(115200);  // Inicializar comunicación serie
+ 
+WiFi.begin("Wokwi-GUEST","");
+  while((WiFi.status() != WL_CONNECTED)) {
+    delay(500);
+    Serial.print(".");
+}
+  Serial.println("Wifi connected");
+}
+ 
+void loop() {
+    delay(1000);  // Esperar 1 segundo entre lecturas
+ 
+    // Leer temperatura y humedad del sensor DHT
+    valor_temperatura = dht.readTemperature();
+    valor_humedad = dht.readHumidity();
+ 
+    // Imprimir los valores en el monitor serie
+    Serial.print("Temperatura: ");
+    Serial.println(valor_temperatura);
+    Serial.print("Humedad: ");
+    Serial.println(valor_humedad);
+ 
+    // Encender LED si la humedad es mayor o igual a 50%
+    if (valor_humedad >= 50) {
+        digitalWrite(led, HIGH);
+    } else {
+        digitalWrite(led, LOW);
+    }
+
+    if((WiFi.status() == WL_CONNECTED)) {
+    // Start connection and send HTTP header, return error code
+    HTTPClient http;
+    String message = url + "api_key=" + api_key + "&" + sensor + "=" + String(valor_humedad);
+    http.begin(message); // HTTP
+ 
+    int httpCode = http.GET();
+    Serial.println(message);
+    Serial.print("GET code:");
+    Serial.println(httpCode);
+    http.end();
+}
+  delay(1000);
+}
+P4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThingSpeak IFrames</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Visualización de Datos - Canal 2844677</h1>
+  </header>
+
+  <main>
+    <section class="sensor-section">
+      <h2>Gráficas de ThingSpeak</h2>
+
+      <!-- PIR (Field 1) -->
+      <div class="sensor-card thingspeak-data">
+        <h3>PIR (Field 1)</h3>
+        <iframe
+          width="450"
+          height="260"
+          style="border: 1px solid #cccccc;"
+          src="https://thingspeak.com/channels/2844677/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&type=line">
+        </iframe>
+      </div>
+
+      <!-- Temperatura (Field 2) -->
+      <div class="sensor-card thingspeak-data">
+        <h3>Temperatura (Field 2)</h3>
+        <iframe
+          width="450"
+          height="260"
+          style="border: 1px solid #cccccc;"
+          src="https://thingspeak.com/channels/2844677/charts/2?bgcolor=%23ffffff&color=%230099cc&dynamic=true&type=line">
+        </iframe>
+      </div>
+
+      <!-- Potenciómetro (Field 3) -->
+      <div class="sensor-card thingspeak-data">
+        <h3>Potenciómetro (Field 3)</h3>
+        <iframe
+          width="450"
+          height="260"
+          style="border: 1px solid #cccccc;"
+          src="https://thingspeak.com/channels/2844677/charts/3?bgcolor=%23ffffff&color=%23ff9900&dynamic=true&type=line">
+        </iframe>
+      </div>
+
+      <!-- LED (Field 4) -->
+      <div class="sensor-card thingspeak-data">
+        <h3>LED (Field 4)</h3>
+        <iframe
+          width="450"
+          height="260"
+          style="border: 1px solid #cccccc;"
+          src="https://thingspeak.com/channels/2844677/charts/4?bgcolor=%23ffffff&color=%23b51a00&dynamic=true&type=line">
+        </iframe>
+      </div>
+
+      <!-- Botón (Field 5) -->
+      <div class="sensor-card thingspeak-data">
+        <h3>Botón (Field 5)</h3>
+        <iframe
+          width="450"
+          height="260"
+          style="border: 1px solid #cccccc;"
+          src="https://thingspeak.com/channels/2844677/charts/5?bgcolor=%23ffffff&color=%2360d835&dynamic=true&type=line">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Visualización de Datos IoT</p>
+  </footer>
+</body>
+</html>
+<?php
+// Habilitar registros de errores para depuración (opcional en producción)
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+error_reporting(E_ALL);
+
+// Función de registro para depuración
+function debugLog($message) {
+    $logFile = "debug.log";
+    $timestamp = date("Y-m-d H:i:s");
+    $logMessage = "[$timestamp] $message\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
+// Registrar la solicitud para depuración
+debugLog("Solicitud recibida: " . json_encode($_GET));
+
+// Crear el archivo si no existe (inicializa con "0,0" → botón=0, PIR=0)
+if(!file_exists("datos.txt")) {
+    file_put_contents("datos.txt", "0,0\r\n");
+    debugLog("Archivo datos.txt creado con valores iniciales (0,0)");
+}
+
+// Leer el contenido actual de datos.txt
+$ARCHIVO = file_get_contents("datos.txt");
+debugLog("Contenido actual de datos.txt: " . trim($ARCHIVO));
+
+// Manejar datos del botón (DATO)
+if(isset($_GET['DATO'])) {
+    $DATO_var = $_GET['DATO'];
+    debugLog("Valor de DATO recibido: " . $DATO_var);
+
+    $datos_actuales = explode(",", $ARCHIVO); // [0] => botón, [1] => PIR
+    // Guardar el nuevo valor de DATO y mantener el PIR
+    $nuevo_texto = $DATO_var . "," . trim($datos_actuales[1]) . "\r\n";
+    file_put_contents("datos.txt", $nuevo_texto);
+
+    debugLog("Archivo actualizado con valor de DATO: " . $nuevo_texto);
+
+    // Si no se pide 'view', devolvemos respuesta y salimos
+    if(!isset($_GET['view'])) {
+        echo "DATO actualizado: " . $DATO_var;
+        debugLog("Respuesta enviada para DATO");
+        exit;
+    }
+}
+
+// Manejar datos del PIR (MOVIMIENTO)
+if(isset($_GET['MOVIMIENTO'])) {
+    $MOVIMIENTO_var = $_GET['MOVIMIENTO'];
+    debugLog("Valor de MOVIMIENTO recibido: " . $MOVIMIENTO_var);
+
+    $datos_actuales = explode(",", $ARCHIVO); // [0] => botón, [1] => PIR
+    // Guardar el nuevo valor de PIR y mantener el botón
+    $nuevo_texto = trim($datos_actuales[0]) . "," . $MOVIMIENTO_var . "\r\n";
+    file_put_contents("datos.txt", $nuevo_texto);
+
+    debugLog("Archivo actualizado con valor de MOVIMIENTO: " . $nuevo_texto);
+
+    // Si no se pide 'view', devolvemos respuesta y salimos
+    if(!isset($_GET['view'])) {
+        echo "MOVIMIENTO actualizado: " . $MOVIMIENTO_var;
+        debugLog("Respuesta enviada para MOVIMIENTO");
+        exit;
+    }
+}
+
+// Volver a leer valores actualizados
+$ARCHIVO = file_get_contents("datos.txt");
+$datos = explode(",", $ARCHIVO);
+$DATO_lectura = trim($datos[0]);      // Estado del botón
+$MOVIMIENTO_lectura = trim($datos[1]); // Estado del PIR
+
+// Si es una solicitud JSON (para la interfaz web)
+if(isset($_GET['json'])) {
+    header('Content-Type: application/json');
+    // Por ahora, enviamos solo buttonState y movementState.
+    // Si quieres enviar temperatura u otros datos, agrégalos aquí.
+    $response = array(
+        'buttonState' => $DATO_lectura,
+        'movementState' => $MOVIMIENTO_lectura
+        // 'temperature' => ... // Ejemplo de campo adicional
+    );
+    echo json_encode($response);
+    debugLog("Enviando respuesta JSON: " . json_encode($response));
+    exit;
+}
+
+// Si llegamos aquí, devolver una respuesta simple en texto
+echo "OK - Valores actuales: Botón=" . $DATO_lectura . ", PIR=" . $MOVIMIENTO_lectura;
+debugLog("Enviando respuesta simple OK");
+?>
+/*************************************************************
+   Librerías
+*************************************************************/
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <DHT.h>
+
+/*************************************************************
+   Definición del sensor DHT22
+*************************************************************/
+#define DHTPIN 25      // Pin del DHT22
+#define DHTTYPE DHT22  // Tipo de sensor
+DHT dht(DHTPIN, DHTTYPE);
+
+/*************************************************************
+   Definición de pines
+*************************************************************/
+int PIR_PIN   = 33;  // Pin del sensor PIR
+int LED_PIN   = 32;  // Pin del LED
+int POT_PIN   = 34;  // Pin analógico para el potenciómetro
+int BOTON_PIN = 27;  // Pin del botón
+
+/*************************************************************
+   Variables globales
+*************************************************************/
+int pirState        = 0;   // Estado del PIR (0 o 1)
+int ledState        = 0;   // Estado del LED (0 o 1)
+float valorTemp     = 0.0; // Lectura de temperatura
+float valorHumedad  = 0.0; // Lectura de humedad
+int potValue        = 0;   // Lectura del potenciómetro (0-4095 en ESP32)
+int status_boton    = 0;   // Lectura del botón (0 o 1)
+
+/*************************************************************
+   Configuración WiFi
+*************************************************************/
+const char* SSID     = "Wokwi-GUEST"; // Tu SSID
+const char* PASSWORD = "";            // Tu contraseña (en Wokwi no se usa)
+
+/*************************************************************
+   Configuración ThingSpeak
+*************************************************************/
+String thingspeakURL   = "https://api.thingspeak.com/update?";
+String api_key         = "8YHTZ0SP1VPFWVAZ"; // Tu API Key de ThingSpeak
+
+// Asigna cada field a un nombre descriptivo
+String field1 = "field1";  // PIR
+String field2 = "field2";  // Temperatura
+String field3 = "field3";  // Potenciómetro
+String field4 = "field4";  // LED
+String field5 = "field5";  // Botón
+
+/*************************************************************
+   Configuración de tu servidor PHP (Replit)
+*************************************************************/
+// URL de tu Replit donde tengas process.php
+String processURL = "https://proyectoIOT-DiegoHorcasitas.repl.co/process.php?";
+
+/*************************************************************
+   Setup
+*************************************************************/
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BOTON_PIN, INPUT);
+
+  // Inicializar DHT
+  dht.begin();
+  delay(1000);
+
+  // Conectar a WiFi
+  WiFi.begin(SSID, PASSWORD);
+  Serial.print("Conectando a WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi conectado!");
+}
+
+/*************************************************************
+   Loop principal
+*************************************************************/
+void loop() {
+  // 1. Leer el PIR
+  pirState = digitalRead(PIR_PIN);
+  if (pirState == HIGH) {
+    Serial.println("Movimiento detectado");
+    ledState = 1; // encender LED
+  } else {
+    Serial.println("Sin movimiento");
+    ledState = 0; // apagar LED
+  }
+
+  // 2. Leer el botón
+  status_boton = digitalRead(BOTON_PIN);
+  // Si el botón está presionado, forzamos el LED a encender
+  if (status_boton == HIGH) {
+    ledState = 1;
+  }
+
+  // Control físico del LED según ledState
+  digitalWrite(LED_PIN, ledState ? HIGH : LOW);
+
+  // 3. Leer temperatura y humedad
+  float t = dht.readTemperature();
+  float h = dht.readHumidity();
+  if (!isnan(t) && !isnan(h)) {
+    valorTemp    = t;
+    valorHumedad = h;
+  } else {
+    Serial.println("Error al leer el sensor DHT!");
+  }
+  Serial.print("Temperatura: ");
+  Serial.println(valorTemp);
+  Serial.print("Humedad: ");
+  Serial.println(valorHumedad);
+
+  // 4. Leer potenciómetro
+  potValue = analogRead(POT_PIN);
+  Serial.print("Valor del potenciómetro: ");
+  Serial.println(potValue);
+
+  // 5. Enviar datos a ThingSpeak
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    // Construir la URL con los 5 fields
+    // PIR -> field1
+    // Temperatura -> field2
+    // Potenciómetro -> field3
+    // LED -> field4
+    // Botón -> field5
+    String message = thingspeakURL +
+                     "api_key=" + api_key +
+                     "&" + field1 + "=" + String(pirState) +
+                     "&" + field2 + "=" + String(valorTemp) +
+                     "&" + field3 + "=" + String(potValue) +
+                     "&" + field4 + "=" + String(ledState) +
+                     "&" + field5 + "=" + String(status_boton);
+
+    http.begin(message);
+    int httpCode = http.GET();
+    Serial.print("ThingSpeak -> GET code: ");
+    Serial.println(httpCode);
+    http.end();
+  }
+
+  // 6. Enviar estado del PIR y del botón a tu servidor PHP (para actualizar datos.txt)
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http2;
+    // Ejemplo de URL: 
+    // https://proyectoIOT-DiegoHorcasitas.repl.co/process.php?DATO=0&MOVIMIENTO=1
+    String urlProcess = processURL + "DATO=" + String(status_boton) + "&MOVIMIENTO=" + String(pirState);
+    http2.begin(urlProcess);
+    int httpCode2 = http2.GET();
+    Serial.print("process.php -> GET code: ");
+    Serial.println(httpCode2);
+    http2.end();
+  }
+
+  // 7. Pausa antes de la siguiente lectura
+  delay(3000);
+}
+
